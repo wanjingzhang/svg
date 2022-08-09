@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section
+      style="
+        height: 0;
+        line-height: 0;
+        transform: rotateZ(0) scale(1);
+        isolation: isolate;
+      "
+    >
+      <svg
+        style="
+          background-image: url('./images/03/01.gif');
+          background-size: 100%;
+          display: block;
+        "
+        viewBox="0 0 750 1334"
+      ></svg>
+
+      <section
+        style="
+          height: 0px;
+          transform: rotate(180deg) rotateZ(0deg) scale(1);
+          isolation: isolate;
+          pointer-events: none;
+        "
+      >
+        <svg
+          opacity="0"
+          style="
+            background-image: url('./images/03/01_.gif');
+            background-size: 100%;
+            display: block;
+            transform: rotate(180deg);
+          "
+          viewBox="0 0 750 1334"
+        >
+          <!-- 单击时显示gif 动画 -->
+          <rect
+            width="250"
+            height="250"
+            opacity="0"
+            style="pointer-events: visible"
+            x="250"
+            y="400"
+          >
+            <set
+              attributeName="visibility"
+              to="hidden"
+              begin="click"
+              dur="1ms"
+              fill="freeze"
+            ></set>
+          </rect>
+          <animate
+            attributeName="opacity"
+            to="1"
+            begin="click"
+            dur="1ms"
+            fill="freeze"
+          ></animate>
+        </svg>
+      </section>
+
+      <!-- 选择切换动画 start-->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 750 1334"
+        style="
+          pointer-events: none;
+          background-image: url(./images/03/default.gif);
+          background-size: 100%;
+          display: block;
+        "
+        xml:space="preserve"
+      >
+        <rect
+          opacity="0"
+          id="button1"
+          x="95"
+          y="413"
+          style="pointer-events: visible"
+          width="76.5"
+          height="76.5"
+        />
+        <rect
+          opacity="0"
+          id="button2"
+          x="95"
+          y="512"
+          style="pointer-events: visible"
+          width="76.5"
+          height="76.5"
+        />
+        <rect
+          opacity="0"
+          id="button3"
+          x="95"
+          y="606"
+          style="pointer-events: visible"
+          width="76.5"
+          height="76.5"
+        />
+        <rect
+          opacity="0"
+          id="button4"
+          x="95"
+          y="703"
+          style="pointer-events: visible"
+          width="76.5"
+          height="76.5"
+        />
+        <rect
+          opacity="0"
+          id="button5"
+          x="95"
+          y="803"
+          style="pointer-events: visible"
+          width="76.5"
+          height="76.5"
+        />
+        <rect
+          opacity="0"
+          id="button6"
+          x="95"
+          y="901"
+          style="pointer-events: visible"
+          width="76.5"
+          height="76.5"
+        />
+
+        <g opacity="0">
+          <animate
+            attributeName="opacity"
+            to="1"
+            begin="button1.click"
+            dur="0.5s"
+            fill="freeze"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button2.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button3.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button4.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button5.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button6.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <foreignObject x="0" y="0" width="750" height="1334">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 750 1334"
+              style="
+                background-image: url(./images/03/sel01.gif);
+                pointer-events: none;
+                background-size: 100%;
+                display: block;
+              "
+              xml:space="preserve"
+            />
+          </foreignObject>
+        </g>
+
+        <g opacity="0">
+          <animate
+            attributeName="opacity"
+            to="1"
+            begin="button2.click"
+            dur="0.5s"
+            fill="freeze"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button1.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button3.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button4.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button5.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button6.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <foreignObject x="0" y="0" width="750" height="1334">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 750 1334"
+              style="
+                background-image: url(./images/03/sel02.gif);
+                pointer-events: none;
+                background-size: 100%;
+                display: block;
+              "
+              xml:space="preserve"
+            />
+          </foreignObject>
+        </g>
+
+        <g opacity="0">
+          <animate
+            attributeName="opacity"
+            to="1"
+            begin="button3.click"
+            dur="0.5s"
+            fill="freeze"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button2.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button1.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button4.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button5.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button6.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <foreignObject x="0" y="0" width="750" height="1334">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 750 1334"
+              style="
+                background-image: url(./images/03/sel03.gif);
+                pointer-events: none;
+                background-size: 100%;
+                display: block;
+              "
+              xml:space="preserve"
+            />
+          </foreignObject>
+        </g>
+
+        <g opacity="0">
+          <animate
+            attributeName="opacity"
+            to="1"
+            begin="button4.click"
+            dur="0.5s"
+            fill="freeze"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button2.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button3.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button1.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button5.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button6.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <foreignObject x="0" y="0" width="750" height="1334">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 750 1334"
+              style="
+                background-image: url(./images/03/sel04.gif);
+                pointer-events: none;
+                background-size: 100%;
+                display: block;
+              "
+              xml:space="preserve"
+            />
+          </foreignObject>
+        </g>
+
+        <g opacity="0">
+          <animate
+            attributeName="opacity"
+            to="1"
+            begin="button5.click"
+            dur="0.5s"
+            fill="freeze"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button2.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button3.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button4.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button1.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button6.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <foreignObject x="0" y="0" width="750" height="1334">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 750 1334"
+              style="
+                background-image: url(./images/03/sel05.gif);
+                pointer-events: none;
+                background-size: 100%;
+                display: block;
+              "
+              xml:space="preserve"
+            />
+          </foreignObject>
+        </g>
+
+        <g opacity="0">
+          <animate
+            attributeName="opacity"
+            to="1"
+            begin="button6.click"
+            dur="0.5s"
+            fill="freeze"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button2.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button3.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button4.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button5.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <animate
+            attributeName="opacity"
+            to="0"
+            begin="button1.click"
+            dur="1ms"
+            fill="freeze"
+            calcMode="discrete"
+          />
+          <foreignObject x="0" y="0" width="750" height="1334">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 750 1334"
+              style="
+                background-image: url(./images/03/sel06.gif);
+                pointer-events: none;
+                background-size: 100%;
+                display: block;
+              "
+              xml:space="preserve"
+            />
+          </foreignObject>
+        </g>
+      </svg>
+      <!-- 选择切换动画 end-->
+    </section>
+  </body>
+</html>

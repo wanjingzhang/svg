@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport"
+        content="width=device-width,target-densitydpi=device-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>-</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    /*html,body{height:100%;width:100%;overflow: hidden;}*/
+  </style>
+</head> 
+<body>
+    <div id="box">
+        <p style="display: none">检票上车</p>
+        <!-- <img src="b.jpg" style="width: 100%;"> -->
+        <!-- 检票上车 -->
+        <svg viewBox="0 0 750 1280" style="width: 100%;background-image: url(imgs/0.jpg);background-repeat: no-repeat;background-size: 100% auto;background-color: rgba(0, 0, 0, 0);-webkit-tap-highlight-color: transparent;-webkit-user-select: none;">
+            <g opacity="1">  
+<foreignObject title="提示浮层" x="1000" width="750" height="1280" style="pointer-events: none;width: 100%;background-image: url(imgs/bg.jpg);background-repeat: no-repeat;background-size: 100% auto;-webkit-tap-highlight-color: transparent;-webkit-user-select: none;">
+    <svg id="tips-svg" width="750" height="680">
+<g>
+<foreignObject x="61" y="400" width="628" height="267" style="background: url(imgs/tips.png) no-repeat left top / 100% auto;"></foreignObject>
+<animate attributeName="opacity" fill="freeze" values="1;0.8;1" begin="0s" dur="1s" repeatCount="indefinite"></animate>
+</g>
+    </svg>
+</foreignObject>
+<!-- 车厢内部 start-->          
+<foreignObject title="车厢内部" x="1000" width="750" height="1280" style="pointer-events: none;">
+    <svg id="btn-svg" viewBox="0 0 750 1280">
+         
+    </svg>
+</foreignObject>
+<g opacity="0" title="检票上车按钮">
+    <rect x="328" y="925" width="320" height="90" fill="#ffc" opacity="1" ></rect>
+    <animate attributeName="opacity" fill="freeze" values="0;0.5;0" begin="0s" dur="1s" repeatCount="indefinite"></animate>
+</g>
+
+<foreignObject title="手指" x="550" y="970" width="107" height="300" style="padding-top: 5%;">
+    <svg viewBox="0 0 107 300">
+<g>
+    <foreignObject x="0" y="20" width="107" height="149" style="pointer-events: none;width: 100%;background-image: url(imgs/hand.png);background-repeat: no-repeat;background-size: 100% auto;-webkit-tap-highlight-color: transparent;-webkit-user-select: none;"></foreignObject>
+    <animateTransform attributeName="transform" fill="freeze" type="translate" values="0 0;0 -20;0 0" begin="0s" dur="1s" repeatCount="indefinite"></animateTransform>
+</g>
+    </svg>
+</foreignObject> 
+<animateTransform attributeName="transform" fill="freeze" type="translate" values="-1000 0" begin="click" restart="never"></animateTransform>
+            </g> 
+        </svg> 
+    </div>
+</body>
+
+<script>
+    var counts = 10;
+    var delay = 3;
+    var dur = 10;
+    var dur2 = 2;
+    function getValues(v1,v2,counts,delay,end,index){
+      var valuesLen = (counts + 1) * delay;
+      var values = []
+      for(var i=0;i<valuesLen;i++){
+        if(i >= index*delay && i <= index*delay + delay-1){
+          values[i] = v2;
+        }else{
+          if(end && index == 0 && i >= counts*delay){
+            values[i] = v2;
+          }else{
+            values[i] = v1;
+          }
+        }
+      }
+      return values.join(";");
+    }
+  
+    /* 遍历banner */ 
+  
+    /* 遍历 座位按钮 */
+    var btnSvg = document.querySelector("#btn-svg");
+    var html = "";
+    var btnDate = [
+      {x:60,y:765,width:90,height:37},
+      {x:200,y:765,width:90,height:37},
+      {x:460,y:765,width:90,height:37},
+      {x:600,y:765,width:90,height:37},
+      {x:150,y:825,width:118,height:52},
+      {x:485,y:825,width:117,height:52},
+      {x:88,y:910,width:147,height:64},
+      {x:518,y:910,width:146,height:64},
+      {x:10,y:1030,width:166,height:72},
+      {x:570,y:1030,width:166,height:72}
+    ]
+    for(var i=1;i<=counts;i++){
+      var values = getValues(0.7,1,counts,delay,true,(i-1));
+      var values2 = getValues("0 0","0 0",counts,delay,true,(i-1));
+      // console.log(values);
+      html +=  '<g class="btn-'+i+'">\
+                  <foreignObject x="1000" y="0" width="750" height="760" style="text-align:center;background-repeat: no-repeat;background-size: 100% auto;background-image: url(imgs/b'+i+'.png);">\
+                    <a target="_blank" href="https://www.baidu.com/'+i+'/" tab="outerlink"\
+                      data-linktype="2" style="\
+                          display: inline-block;\
+                          margin-top:84%;\
+                          width:40%;\
+                          height:0;\
+                          padding-bottom:14%;\
+                          text-decoration: none;\
+                          border-radius: 5px;\
+                          background-image: url(imgs/btn-get.png);background-size: 100% auto;background-repeat: no-repeat;\
+                          color:#fff;\
+                          pointer-events:auto;\
+                        "></a>\
+                  </foreignObject>\
+                  <g opacity="0.7" style="pointer-events:auto">\
+                    <foreignObject x="'+btnDate[i-1].x+'" y="'+btnDate[i-1].y+'" width="'+btnDate[i-1].width+'" height="'+(btnDate[i-1].height * 2)+'" style="padding-top:20px">\
+                      <svg style="width:100%;height:100%;background: url(imgs/btn'+i+'.png) no-repeat left top / 100% auto;">\
+                        <animateTransform attributeName="" values="'+values2+'" begin="0s" dur="'+dur+'s" repeatCount="indefinite"></animateTransform>\
+                      </svg>\
+                    </foreignObject>\
+                    <animateTransform attributeName="transform" type="translate" values="1000 0" begin="click" dur="'+dur2+'s" restart="whenNotActive"></animateTransform>\
+                    <animate attributeName="opacity" values="'+values+'" begin="0s" dur="'+dur+'s" repeatCount="indefinite"></animate>\
+                    <animateTransform attributeName="" type="translate" values="'+values2+'" begin="0s" dur="'+dur+'s" repeatCount="indefinite"></animateTransform>\
+                    <animate attributeName="opacity" values="1" begin="click" dur="'+dur2+'s" restart="whenNotActive"></animate>\
+                  </g>\
+                  <animateTransform attributeName="transform" type="translate" values="-1000 0" begin="click" dur="'+dur2+'s" restart="whenNotActive"></animateTransform>\
+                </g>';
+    }
+    btnSvg.innerHTML = html;
+  
+  
+    var DATA = {
+      "0.jpg" : "https://mmbiz.qpic.cn/mmbiz_jpg/F0lQibpuBqTkIBrTPmCQiaiajxmQu635Qy5YuBgr44CrdIsn5eUyQzxc3SUpgrcBGhqm44WPZLJgBRjanzDBI8lMg/0?wx_fmt=jpeg",
+      "hand.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPG2NcKAxXJGmgzNXlV1djXibJYfrSTRYR7XBwQmSaxpMxtkDCfCF3dAyA/0?wx_fmt=png",
+      "tips.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGWQdy90uWkuF5fwnM3F2QETas2xCrvpX5DWNNNTfhGujMX4UiaQcy7yQ/0?wx_fmt=png",
+      "bg.jpg" : "https://mmbiz.qpic.cn/mmbiz_jpg/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPG8kSnEteJNHEWWcmzQic2yibicDO5bkEVPSwISodc1oe9h19oAvtMmeKgw/0?wx_fmt=jpeg",
+      "b1.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGkunUVmHib9SWPgCLboARmK7KvHrbStEMxichOezlGiaic13yjezBcNYokw/0?wx_fmt=png",
+      "b2.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGsKJODV5M8ubqK2IXLhaDuL3hCWaBGNZryZ798JfwRuoXJO5uYk6k7g/0?wx_fmt=png",
+      "b3.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGgM3cnCD6Zoia9oabsOWdRcduyUf5NdDOicNX7yPZm8yN8c5mV25icP1Pw/0?wx_fmt=png",
+      "b4.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGGSLTmpFdnTdVEVQ6c4ickysuyrFRniaccoxV6OYu6jNfVKbicerV4vwoQ/0?wx_fmt=png",
+      "b5.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGBbWRJCzY35Ov6goozmSEicJQpf4iabwtXbA4BkGXsvx4Otpk4CIjerGQ/0?wx_fmt=png",
+      "b6.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGM4uNbeRyLgNiaVNOArXfSbb9nFFyniaegdAK0jzh25ic9gRB3RWhcDbgw/0?wx_fmt=png",
+      "b7.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGyHfUjlPicD5qbCRssnInqWH5gKTN4kYYUbpLKnO6pDLlEuKpicBYVDiaQ/0?wx_fmt=png",
+      "b8.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGVEcywZxFztfdGtxfBxd8PoRtJEoFic4zWY7YRRhYp1Yt8dmQO4AlakA/0?wx_fmt=png",
+      "b9.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGbYmHI4Z2dibwYmCiaic09LUWehLqaic4tZrqUw38vqeavW0bXjs9WXOiaDQ/0?wx_fmt=png",
+      "b10.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPG0V1R7XeibUsLbz3icibY4Ip7qWKTp2CdU4xIMNiblvnYBQ2RibIkwWJT9EQ/0?wx_fmt=png",
+      "btn1.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGbMdribrgTvpOAzvSO6OKlvsXWh17r57o7rfhLcU2jA1YQvFoaxLlBsg/0?wx_fmt=png",
+      "btn2.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGATVqhcz3ia7m7akBIrewQ3iaWYmlWwgSzqNlpq74iaj2pyc5g0E5rznBA/0?wx_fmt=png",
+      "btn3.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGmeszQicRvQaJlgtibAljP0k7xSq8gszibGwGmZs9ibN5icpN096Oic1UB8Bw/0?wx_fmt=png",
+      "btn4.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGtSPnEYXyv02BQIZe7zVADIJx1SmJHcicogVVHYyOWgiclXIyOmldpzZg/0?wx_fmt=png",
+      "btn5.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGMA5kzgnVHJCO5FJz8HDZiazA6tQ9NlqamRVwaezTbK3JPxM8ZtaHcsw/0?wx_fmt=png",
+      "btn6.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGYXotiaJicX5CrDZFd3Ygca4EfIowLp5iaf7ucAlQKicUoeqLVDQBEWFxYA/0?wx_fmt=png",
+      "btn7.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGZgBc4DyuT09RxoZILFFiaaACGUyFYNvcYzaDUia4bxcpc5r8853Ouicqw/0?wx_fmt=png",
+      "btn8.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGsHahiaeXoG6exIoRxibmaUvF7ZianvyJqMo0wiaib2rdibWXCYqXrDEVz74A/0?wx_fmt=png",
+      "btn9.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPG1uibOyZOGBqHlc1zyFb6qQDhsouYFGfwLEhSzjowlibuViaJ2ntMPic83g/0?wx_fmt=png",
+      "btn10.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTk8dIdvRiaL1lQnErAOScPPGdgIiaZhTWWeHh6H6bd1KAd5aEIJWibqOU44m9YRbC6EabRLtpz96IdBA/0?wx_fmt=png",
+      "btn-get.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTkIBrTPmCQiaiajxmQu635Qy5ktLo6j7nUDvxPq5bCQxetMZflOrKl2LadSMK0JMeSB7cFMSBR1G0FA/0?wx_fmt=png",
+      //福利直通车
+      "https://www.baidu.com/1/" : '" data-miniprogram-appid="wxaf35009675aa0b2a" data-miniprogram-path="/welfare-center/views/homepage/index?channel_id=1100000521" data-miniprogram-nickname="福利直通车" data-miniprogram-type="text',
+      //企业出行
+      "https://www.baidu.com/2/" : "https://es.xiaojukeji.com/xpubpage?s=op-json-wGPO-JHXH&__utm_source=duanwai_free_qiyeweixinhao_huodongcaidanrukou_kong_H5guanwang_11yuehuodong_20201102_shichang_LuLi_xinkehaoli_kong%20%E4%BC%9A%E6%9C%89%E5%8D%87%E8%88%B1%E5%88%B8%E7%A6%8F%E5%88%A9",
+      //豪华车
+      "https://www.baidu.com/3/" : "https://s.didi.cn/7elOs",
+      //出行礼包
+      "https://www.baidu.com/4/" : 'https://z.didi.cn/4qabW',
+      //滴滴代驾
+      "https://www.baidu.com/5/" : 'https://page.xiaojukeji.com/m/ddPage_0CplVcI4.html ',
+      //滴滴货运
+      "https://www.baidu.com/6/" : '" data-miniprogram-appid="wxaf35009675aa0b2a" data-miniprogram-path="/pages/index/index?menuid=freight" data-miniprogram-nickname="滴滴货运" data-miniprogram-type="text',
+      //英文版
+      "https://www.baidu.com/7/" : "https://s.didi.cn/8VApq",
+      //青桔单车
+      "https://www.baidu.com/8/" : "https://page.xiaojukeji.com/m/ddPage_0sPRpFZl.html?didichn=14",
+      //超级会员
+      "https://www.baidu.com/9/" : 'https://v.didi.cn/p/RpL3pe',
+      //橙心优选
+      "https://www.baidu.com/10/" : '" data-miniprogram-appid="wxd7fa7df243b05aed" data-miniprogram-path="pages/index/index/index.html?share_source_id=51002&biz_channel_id=666666&share_uid=637276942809289250&leader_id=639247267614127561&share_uniq_sign=b6530e3c6d2aeeaca46a5de99c65abe9" data-miniprogram-nickname="橙心优选" data-miniprogram-type="text'
+    };
+  
+    // <a class="weapp_text_link js_weapp_entry" style="font-size:17px;" href="" data-miniprogram-appid="wx3e20f9b90c2e3f3e" data-miniprogram-path="pages/home/home" data-miniprogram-nickname="fresh馥蕾诗官方商城" data-miniprogram-type="text" data-miniprogram-servicetype="">fsdfsd</a>
+  
+    /*
+    
+    var DATA = {
+      "b.jpg" : "https://mmbiz.qpic.cn/mmbiz_jpg/F0lQibpuBqTnWzlicVMmPX80BXciaR1hcszQQauEOTGR0HQmbM0fuHOw2iaNxULmjgdDcHWpf3Cxp6Zy0MxtM5C9hw/0?wx_fmt=jpeg",
+      "0.jpg" : "https://mmbiz.qpic.cn/mmbiz_jpg/F0lQibpuBqTnWzlicVMmPX80BXciaR1hcszb7s1tTjvABxlQyX44LVmicTeRzlI2rSeBFLG6TMPfpHOXx8jxDT0bSg/0?wx_fmt=jpeg",
+      "bg.jpg" : "https://mmbiz.qpic.cn/mmbiz_jpg/F0lQibpuBqTnWzlicVMmPX80BXciaR1hcszW0uyDZUO1ZicORjV9Qy2OGlx1iadJU8kbcRuJfO09tTsezeJRC3tciaDg/0?wx_fmt=jpeg",
+      "b1.png" : "https://mmbiz.qpic.cn/mmbiz_jpg/F0lQibpuBqTnWzlicVMmPX80BXciaR1hcszakviaJJd8bo1gib3x1ukQt7cm9ziaiasnNLiaqNAeFlhDPbBia8bIHmRZWEg/0?wx_fmt=jpeg",
+      "b2.png" : "https://mmbiz.qpic.cn/mmbiz_jpg/F0lQibpuBqTnWzlicVMmPX80BXciaR1hcszia1AcKicwNCs8ZjDoYR9nvazucicOcIAuKGe6aQ7rMF3NZBw8ic0atEWfQ/0?wx_fmt=jpeg",
+      "b3.png" : "https://mmbiz.qpic.cn/mmbiz_jpg/F0lQibpuBqTnWzlicVMmPX80BXciaR1hcszRpJcKcn0dbcFajsjdyFwicFE5zXPJfaoRvNrCj1Pf5OJv9aHo30Q6sQ/0?wx_fmt=jpeg",
+      "b4.png" : "https://mmbiz.qpic.cn/mmbiz_jpg/F0lQibpuBqTnWzlicVMmPX80BXciaR1hcszN65h65NSz9FKzZ1nw7rdwiaUKhdnJ50prk87jq5aicuuyiaZQwPGF2c4g/0?wx_fmt=jpeg",
+      "btn1.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTnWzlicVMmPX80BXciaR1hcszsSmHZfLfiaAQsiaNDcBl3vht2w0DEbwsGVXoKxzSibFye7FhrqRfLb0icw/0?wx_fmt=png",
+      "btn2.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTnWzlicVMmPX80BXciaR1hcszBCpia8sicdO7Z2aZk9Atb98cP2tfOXs6ibldLfU96D2K7yglerpbKzTWA/0?wx_fmt=png",
+      "btn3.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTnWzlicVMmPX80BXciaR1hcszs1C8iboJm7ibypwzLJs7eoQTrnnotPrhfh76b3vGGrZsmsLKcwRneJicg/0?wx_fmt=png",
+      "btn4.png" : "https://mmbiz.qpic.cn/mmbiz_png/F0lQibpuBqTnWzlicVMmPX80BXciaR1hcszsFgMIY0XWKzewwdUEEAG1O7ib8VRsu4KrhkCJicFicj3aSXlic1XmfFY2Q/0?wx_fmt=png",
+      "https://www.baidu.com/1" : "https://www.baidu.com/11",
+      "https://www.baidu.com/2" : "https://www.baidu.com/22",
+      "https://www.baidu.com/3" : "https://www.baidu.com/33",
+      "https://www.baidu.com/4" : "https://www.baidu.com/44"
+    };
+    */
+    var html = document.querySelector("#box").innerHTML;
+    // console.log(html)
+    for(var key in DATA){
+      var reg = new RegExp(key,'g');
+      // console.log(reg)
+      html = html.replace(reg, DATA[key]);
+      html = html.replace(/\n|\r/g, "");
+      html = html.replace(/\s+/g, " ");
+      html = html.replace(/>\s</g, "><");
+    }
+    console.log(html);
+    
+  </script>
+
+</html>
